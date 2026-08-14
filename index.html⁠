@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cá Nhân - Tài Lộc Phát Tài</title>
+    <!-- Sử dụng Google Fonts và FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng tiền rơi */
+        .money-rain {
+            position: absolute;
+            top: -50px;
+            color: #d4af37;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* Khung Profile */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Avatar */
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Thông tin */
+        .profile-card h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffdf00;
+        }
+
+        .profile-card p.title {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .profile-card p.bio {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Các nút mạng xã hội / liên kết */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .social-btn i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Khung Profile -->
+    <div class="profile-card">
+        <div class="avatar-container">
+            <!-- Bạn có thể thay đổi link ảnh đại diện tại đây -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Avatar">
+        </div>
+        <h1>Tên Của Bạn</h1>
+        <p class="title">✨ Triệu Phú Tương Lai ✨</p>
+        <p class="bio">Chào mừng bạn đến với trang profile cá nhân của mình. Tiền tài, danh vọng và thành công luôn ở đây!</p>
+        
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="social-btn">
+                <i class="fa-brands fa-facebook"></i> Facebook Cá Nhân
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-btn">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-btn">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://zalo.me" target="_blank" class="social-btn">
+                <i class="fa-solid fa-phone"></i> Liên Hệ Zalo
+            </a>
+        </div>
+    </div>
+
+    <!-- Đoạn mã JavaScript tạo hiệu ứng tiền rơi tự động -->
+    <script>
+        function createMoney() {
+            const money = document.createElement('div');
+            money.classList.add('money-rain');
+            
+            // Các biểu tượng tiền tệ rơi xuống ngẫu nhiên
+            const symbols = ['💵', '💶', '💷', '💴', '🪙', '🧧'];
+            money.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            // Vị trí ngang ngẫu nhiên
+            money.style.left = Math.random() * window.innerWidth + 'px';
+            
+            // Tốc độ rơi ngẫu nhiên (từ 3 giây đến 7 giây)
+            const duration = Math.random() * 4 + 3;
+            money.style.animationDuration = duration + 's';
+            
+            // Kích thước ngẫu nhiên
+            const size = Math.random() * 15 + 15;
+            money.style.fontSize = size + 'px';
+            
+            document.body.appendChild(money);
+            
+            // Xóa phần tử sau khi rơi xong để tránh nặng máy
+            setTimeout(() => {
+                money.remove();
+            }, duration * 1000);
+        }
+
+        // Tạo ra các tờ tiền liên tục mỗi 300 mili-giây
+        setInterval(createMoney, 300);
+    </script>
+</body>
+</html>
