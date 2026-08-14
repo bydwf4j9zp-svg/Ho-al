@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân - Profile</title>
+    <!-- Nhúng Font chữ Inter và thư viện Icon FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Profile */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .profile-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-header p.title {
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .profile-header p.bio {
+            color: var(--text-secondary);
+            font-size: 14px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h2 i {
+            color: var(--accent-color);
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Projects List */
+        .project-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .project-card h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Thông tin cá nhân -->
+        <div class="profile-header">
+            <!-- Thay link ảnh đại diện của bạn vào thuộc tính src bên dưới -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Avatar" class="avatar">
+            <h1>Nguyễn Văn A</h1>
+            <p class="title">Frontend Developer & Creator</p>
+            <p class="bio">Đam mê công nghệ, thích xây dựng những giao diện web tối ưu, đẹp mắt và trải nghiệm người dùng tốt nhất.</p>
+            
+            <!-- Mạng xã hội -->
+            <div class="social-links">
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Kỹ năng -->
+        <section>
+            <h2><i class="fas fa-code"></i> Kỹ Năng & Công Nghệ</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">ReactJS</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">Responsive Design</span>
+            </div>
+        </section>
+
+        <!-- Dự án nổi bật -->
+        <section>
+            <h2><i class="fas fa-folder-open"></i> Dự Án Nổi Bật</h2>
+            <div class="project-card">
+                <h3>Ứng dụng Quản lý Công việc (Todo App)</h3>
+                <p>Xây dựng bằng ReactJS giúp người dùng lên kế hoạch làm việc hàng ngày một cách trực quan.</p>
+            </div>
+            <div class="project-card">
+                <h3>Website Thương mại điện tử</h3>
+                <p>Trang web bán hàng tối ưu trên thiết bị di động, tích hợp giỏ hàng và thanh toán cơ bản.</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
